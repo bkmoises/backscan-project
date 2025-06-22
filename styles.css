@@ -1,0 +1,126 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f6f5f2;
+  color: #373737;
+  min-height: 100vh;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  background: #f3f1ee;
+  padding: 2rem 1rem 1rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid #e0dedb;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #3d3c38;
+}
+
+.subtitle {
+  margin-top: 0.5rem;
+  color: #807b72;
+  font-size: 1.25rem;
+}
+
+.location-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.location-message {
+  background: #ffffffcc;
+  padding: 2rem 2.5rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px #0001;
+  text-align: center;
+}
+
+.loader {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loader-icon {
+  border: 5px solid #ecebe7;
+  border-top: 5px solid #a69b8a;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 0.5rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loader-text {
+  color: #807b72;
+  font-size: 1.1rem;
+}
+
+.error-msg {
+  color: #b44d4d;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.footer {
+  background: #edeae7;
+  color: #807b72;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 1rem;
+  border-top: 1px solid #e0dedb;
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  margin: 2rem auto;
+  max-width: 350px;
+  box-shadow: 0 2px 12px #0001;
+  text-align: center;
+}
+
+.error-container h1 {
+  color: #b44d4d;
+  margin-bottom: 1rem;
+}
+
+.back-btn {
+  margin-top: 2rem;
+  color: #fff;
+  background: #b44d4d;
+  text-decoration: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  transition: background 0.2s;
+  font-weight: 500;
+}
+
+.back-btn:hover {
+  background: #a33d3d;
+}

